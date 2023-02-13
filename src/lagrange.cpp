@@ -2,12 +2,12 @@
 #include <vector>
 using namespace std;
 
-float lagrange(int x, int j, vector<vector<int>> coords)
+float lagrange(float x, int j, vector<vector<float>> coords)
 {
     float nominator = 1, denominator = 1;
     for (int i = 0; i < coords.size(); i++)
     {
-        vector<int> coord = coords[i];
+        vector<float> coord = coords[i];
         if (j != i)
         {
             nominator *= (x - coord[0]);
@@ -17,11 +17,11 @@ float lagrange(int x, int j, vector<vector<int>> coords)
     return nominator/denominator;
 }
 
-float lagrange_interpolation(int x, vector<vector<int>> coords)
+float lagrange_interpolation(float x, vector<vector<float>> coords)
 {
     float interpolation = 0;
     int i = 0;
-    for (vector<int> coord : coords)
+    for (vector<float> coord : coords)
     {
         interpolation += (coord[1]*lagrange(x, i++, coords));
     }
@@ -33,16 +33,16 @@ int main()
     int points_amount;
     cout << "Insira a quantidade de coordenadas:";
     cin >> points_amount;
-    vector<vector<int>> coordinates;
+    vector<vector<float>> coordinates;
 
     for (int i = 0; i < points_amount; i++)
     {
-        int x, y;
+        float x, y;
         cout << "Insira coordenada x para o ponto " << i << ":";
         cin >> x;
         cout << "Insira coordenada y para o ponto " << i << ":";
         cin >> y;
-        coordinates.push_back(vector<int>{x, y});
+        coordinates.push_back(vector<float>{x, y});
     }
     int x;
     while (1)
