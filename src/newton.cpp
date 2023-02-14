@@ -16,7 +16,6 @@ float difference(int n, vector<vector<float>> coordinates)
             vector<vector<float>> erased_one = coordinates;
             vector<vector<float>> erased_two = coordinates;
             erased_one.erase(erased_one.begin());
-            cout << erased_one.size() << "|" << erased_two.size() << endl;
             float nominator = (difference(n-1, erased_one)-difference(n-1, coordinates));
             float denominator = (coordinates[coordinates.size()-1][0]-coordinates[0][0]);
             cout << nominator/denominator << endl;
